@@ -1,2 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries>
+        <package android:name="com.ads.lio.uriappclient" />
+        <package android:name="com.cielo.lio" />
+        <package android:name="com.cielo.lio.debug" />
+    </queries>
+    <meta-data
+        android:name="cs_integration_type"
+        android:value="uri"
+    />
 </manifest>

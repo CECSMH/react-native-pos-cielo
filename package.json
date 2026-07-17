@@ -1,6 +1,6 @@
 {
   "name": "react-native-pos-cielo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Integration of Cielo POS features for React Native",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -34,24 +34,41 @@
   "scripts": {
     "example": "yarn workspace react-native-pos-cielo-example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "bob build",
-    "typecheck": "tsc",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "test": "jest",
-    "release": "release-it --only-version",
-    "web": "vite",
-    "build:web": "vite build"
+    "prepublishOnly": "bob build",
+    "typecheck": "tsc"
   },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "cielo",
+    "cielo-lio",
+    "cielo-smart",
+    "pos",
+    "pos-terminal",
+    "payment",
+    "payments",
+    "pagamento",
+    "pagamentos",
+    "pix",
+    "credit-card",
+    "debit-card",
+    "cartao",
+    "receipt",
+    "receipt-printer",
+    "thermal-printer",
+    "print",
+    "impressao",
+    "turbo-module",
+    "new-architecture",
+    "deeplink",
+    "android",
+    "brazil",
+    "fintech"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CECSMH/react-native-pos-cielo.git"
   },
-  "author": "CECSMH <kadu_cecs@outlook.com> (https://github.com/CECSMH)",
+  "author": "CECSMH (https://github.com/CECSMH)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/CECSMH/react-native-pos-cielo/issues"
@@ -121,32 +138,6 @@
     "android": {
       "javaPackageName": "com.poscielo"
     }
-  },
-  "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
-  },
-  "jest": {
-    "preset": "@react-native/jest-preset",
-    "testEnvironmentOptions": {
-      "customExportConditions": [
-        "require",
-        "react-native",
-        "<%- project.sourceCondition -%>"
-      ]
-    },
-    "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
-      "<rootDir>/lib/"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "release-it": {
     "git": {
