@@ -479,33 +479,31 @@ async function checkoutFlow() {
 
 ---
 
-## Requirements
+## Requisitos
 
-- **Android** only
-- Android minSdk 24+ (usually already satisfied)
+- Apenas **Android**
+- Android minSdk 24+ (geralmente já atendido)
 
-## Contributing
+## Contribuição
 
-Contributions are welcome! To contribute:
+Contribuições são muito bem-vindas! Para contribuir:
 
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/your-feature`).
-3. Commit your changes (`git commit -m 'Add your feature'`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Open a pull request.
+1. Faça um fork do repositório.
+2. Crie uma branch para sua funcionalidade (`git checkout -b feature/sua-funcionalidade`).
+3. Envie seus commits (`git commit -m 'Adiciona sua funcionalidade'`).
+4. Faça o push para a branch (`git push origin feature/sua-funcionalidade`).
+5. Abra um pull request.
 
-## Support the Project ☕
+## Apoie o Projeto ☕
 
-If you've found this library helpful, consider buying me a coffee!
+Se esta biblioteca foi útil para você, considere me pagar um café!
 
-
-
-Scan the QR code to donate (PIX):
+Escaneie o código QR para doar (PIX):
 
 ![PIX donation QR code](https://api.qrserver.com/v1/create-qr-code/?data=00020126580014BR.GOV.BCB.PIX013698817f09-40db-47c0-adf3-0c69b99ef1635204000053039865802BR5924Carlos%20Eduardo%20Conceicao6009SAO%20PAULO62140510rmQmKYzFZ863046800)
 
-Thank you for your support! 🚀
+Muito obrigado pelo seu apoio! 🚀
 
-## License
+## Licença
 
-MIT License. See LICENSE for details.
+Licença MIT. Veja o arquivo LICENSE para mais detalhes.
