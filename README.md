@@ -226,7 +226,7 @@ Envia um layout de recibo para impressão no terminal. Aceita tanto um `ReceiptL
 import { ReceiptPrintBuilder, TextAlignment } from 'react-native-pos-cielo';
 
 await Cielo.print(
-  new ReceiptPrintBuilder(80)
+  new ReceiptPrintBuilder()
     .addText('MINHA LOJA', { align: TextAlignment.CENTER, textSize: 24 })
     .addDivider()
 );
@@ -446,7 +446,7 @@ async function checkoutFlow() {
 
     // 3. Imprimir comprovante
     await Cielo.print(
-      new ReceiptPrintBuilder(80)
+      new ReceiptPrintBuilder()
         .addText('MY COFFEE SHOP', {
           align: TextAlignment.CENTER,
           textSize: 24,
