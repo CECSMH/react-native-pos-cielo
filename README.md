@@ -446,7 +446,7 @@ async function checkoutFlow() {
 
     // 3. Imprimir comprovante
     await Cielo.print(
-      new ReceiptPrintBuilder(80)
+      new ReceiptPrintBuilder()
         .addText('MY COFFEE SHOP', {
           align: TextAlignment.CENTER,
           textSize: 24,
