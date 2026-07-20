@@ -22,13 +22,9 @@ import com.facebook.react.bridge.ActivityEventListener
 import com.facebook.react.bridge.ReactApplicationContext
 
 class PosCieloModule(val reactContext: ReactApplicationContext) : NativePosCieloSpec(reactContext), ActivityEventListener {
- companion object {
-    const val NAME = NativePosCieloSpec.NAME
-  }
+  companion object { const val NAME = NativePosCieloSpec.NAME }
 
-  init {
-    reactContext.addActivityEventListener(this)
-  }
+  init { reactContext.addActivityEventListener(this) }
 
   private val current_activity: AppCompatActivity? get() = reactContext.currentActivity as? AppCompatActivity;
 
@@ -91,17 +87,17 @@ class PosCieloModule(val reactContext: ReactApplicationContext) : NativePosCielo
         val layout = ReceiptJson.parse(data)
         val bitmap = ReceiptBitmapRenderer().render(layout)
 
-        val externalCacheDir = reactApplicationContext.externalCacheDir
-        if (externalCacheDir == null) {
+        val external_cache_dir = reactApplicationContext.externalCacheDir
+        if (external_cache_dir == null) {
             promise.reject("PRINT_ERROR", "Erro ao acessar cache do dispositivo.")
             return@launch
         }
         
-        if (!externalCacheDir.exists()) {
-            externalCacheDir.mkdirs()
+        if (!external_cache_dir.exists()) {
+            external_cache_dir.mkdirs()
         }
         
-        val cache_file = File(externalCacheDir, "cielo_receipt.jpg")
+        val cache_file = File(external_cache_dir, "cielo_receipt.jpg")
         val out_stream = FileOutputStream(cache_file)
         bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out_stream)
         out_stream.flush()

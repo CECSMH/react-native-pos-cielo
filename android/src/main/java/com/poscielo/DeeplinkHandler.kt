@@ -2,25 +2,25 @@ package com.poscielo
 
 import java.util.UUID
 import android.net.Uri
-import android.app.Activity
-import android.content.Context
-import android.util.Base64
-import android.content.Intent 
-import kotlinx.coroutines.withTimeoutOrNull
-import androidx.appcompat.app.AppCompatActivity
-import kotlinx.coroutines.CompletableDeferred
-import android.content.pm.PackageManager
-import org.json.JSONObject
 import org.json.JSONArray
+import org.json.JSONObject
+import android.util.Base64
+import android.app.Activity
+import android.content.Intent 
+import android.content.Context
+import android.content.pm.PackageManager
+import kotlinx.coroutines.withTimeoutOrNull
+import kotlinx.coroutines.CompletableDeferred
+import androidx.appcompat.app.AppCompatActivity
 
 class DeeplinkHandler(private val activity: AppCompatActivity) {
     companion object {
         private const val TAG = "DeeplinkHandler"
         private const val SCHEME = "lio"
-        
-        private const val DEFAULT_CALLBACK_SCHEME = "pos_cielo_module"
+    
         private const val META_DATA_KEY = "com.poscielo.CALLBACK_SCHEME"
         private const val REQUEST_TIMEOUT_MS = 35_000L
+        private const val DEFAULT_CALLBACK_SCHEME = "pos_cielo_module"
     }
 
     private val CALLBACK_SCHEME: String by lazy { resolve_callback_scheme(activity.applicationContext) }
@@ -31,21 +31,14 @@ class DeeplinkHandler(private val activity: AppCompatActivity) {
 
     private fun resolve_callback_scheme(context: Context): String {
         return try {
-            val app_info = context.packageManager.getApplicationInfo(
-                context.packageName,
-                PackageManager.GET_META_DATA
-            )
-            val configured = app_info.metaData?.getString(META_DATA_KEY)
-            if (!configured.isNullOrBlank()) {
-                configured
-            } else {
-                DEFAULT_CALLBACK_SCHEME
-            }
-        } catch (e: Exception) {
+            val package_name = context.packageName ?: return DEFAULT_CALLBACK_SCHEME
+            val app_info = context.packageManager.getApplicationInfo(package_name, PackageManager.GET_META_DATA)
+            val configured = app_info?.metaData?.getString(META_DATA_KEY)
+            if (!configured.isNullOrBlank()) configured else DEFAULT_CALLBACK_SCHEME
+        } catch (e: Throwable) { 
             DEFAULT_CALLBACK_SCHEME
         }
     }
-
     fun initialize(client_id: String, access_token: String) {
         this.client_id = client_id
         this.access_token = access_token
@@ -147,10 +140,7 @@ class DeeplinkHandler(private val activity: AppCompatActivity) {
     }
 
     suspend fun print_text(data: String): Result {
-        return execute_deep_link(
-            endpoint = "print",
-            json_payload = data
-        )
+        return execute_deep_link(endpoint = "print", json_payload = data)
     }
 
     private suspend fun execute_deep_link(endpoint: String, json_payload: String?, timeout_ms: Long = REQUEST_TIMEOUT_MS): Result {
