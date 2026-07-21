@@ -4,6 +4,10 @@ SDK React Native para integração com terminais **Cielo LIO / Smart** via deep 
 
 ---
 
+[![npm version](https://badge.fury.io/js/react-native-pos-cielo.svg)](https://badge.fury.io/js/react-native-pos-cielo)
+[![Platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 ## Índice
 
 - [Instalação](#instalação)

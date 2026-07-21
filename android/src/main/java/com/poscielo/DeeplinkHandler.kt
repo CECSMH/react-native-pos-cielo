@@ -19,7 +19,7 @@ class DeeplinkHandler(private val activity: AppCompatActivity) {
         private const val SCHEME = "lio"
     
         private const val META_DATA_KEY = "com.poscielo.CALLBACK_SCHEME"
-        private const val REQUEST_TIMEOUT_MS = 35_000L
+        private const val REQUEST_TIMEOUT_MS = 80_000L
         private const val DEFAULT_CALLBACK_SCHEME = "pos_cielo_module"
     }
 
